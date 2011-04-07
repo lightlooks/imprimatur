@@ -100,3 +100,6 @@ log4j = { root ->
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.lightlooks.reviews.Person'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.lightlooks.reviews.PersonRole'
 grails.plugins.springsecurity.authority.className = 'com.lightlooks.reviews.Role'
+
+// Added for hotpluggable reviewers
+reviewersDir = "./reviewplugins"

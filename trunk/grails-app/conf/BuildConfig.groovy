@@ -30,7 +30,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.13'
-		compile 'com.ba.sip.qa.automation:schemassessor-core:1.0.1-SNAPSHOT'
+		//compile 'com.ba.sip.qa.automation:schemassessor-core:1.0.1-SNAPSHOT'
 		compile 'com.sun.xsom:xsom:20100725'
 		compile 'org.apache.derby:derby:10.5.3.0_1'
     }

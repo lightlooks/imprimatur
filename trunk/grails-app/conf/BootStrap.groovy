@@ -7,11 +7,12 @@ import com.lightlooks.reviews.PersonRole
 class BootStrap {
 
 	def springSecurityService
+	def reviewService
 	
     def init = { servletContext ->
     
 	
-		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+	  def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
       def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
       String password = springSecurityService.encodePassword('egy9u8a5')
@@ -30,8 +31,13 @@ class BootStrap {
       assert Role.count() == 2
       assert PersonRole.count() == 1
       }else{
-	  System.out.println("Bootstrap user exists");
+	  log.warn("Bootstrap user exists");
 	  }
+	  
+	  reviewService.refreshReviewers()
+	  
+	  
+	  
     }
     def destroy = {
     }
