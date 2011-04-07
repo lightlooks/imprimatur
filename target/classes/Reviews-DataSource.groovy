@@ -21,10 +21,12 @@ environments {
 //          url = "jdbc:hsqldb:mem:devDB"
         }
     }
-    test {
+    testMac {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:hsqldb:mem:testDb"
+          pooled= true
+			driverClassName="org.apache.derby.jdbc.EmbeddedDriver"
+			url="jdbc:derby:/U/reviewDB;create=true"
+			dbCreate="create-drop"
         }
     }
     production {

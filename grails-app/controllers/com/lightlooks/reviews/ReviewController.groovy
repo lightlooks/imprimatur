@@ -1,7 +1,7 @@
 package com.lightlooks.reviews
 
-import com.lightlooks.schemassessor.core.XSOMAssessor
-import com.sun.xml.xsom.parser.XSOMParser
+//import com.lightlooks.schemassessor.core.XSOMAssessor
+//import com.sun.xml.xsom.parser.XSOMParser
 import java.security.MessageDigest
 import org.springframework.web.multipart.MultipartFile
 
@@ -201,28 +201,28 @@ class ReviewController {
 	}
 	
 	def reviewFile (MultipartFile f, Review r){
-		def xp = new XSOMParser()
-		xp.parse f.getInputStream()
-		def xs = xp.getResult();
-		XSOMAssessor xa = new XSOMAssessor()
-		xa.assess xs
-
-		xa.getErrorHandler().getEvents().each{
-
-			def re = new ReviewError(lineNumber: it.getLocation().getLineNumber(),
-					code: it.eventCode().getCode(),
-					description: it.getDescription())
-
-			r.addToReviewErrors(re)
-		}
-		xa.getWarningHandler().getEvents().each{
-
-			def wng = new Warning(lineNumber:it.getLocation().getLineNumber(),
-					code:it.eventCode().getCode(),
-					description:it.getDescription())
-
-			r.addToReviewWarnings(wng)
-		}
+//		def xp = new XSOMParser()
+//		xp.parse f.getInputStream()
+//		def xs = xp.getResult();
+//		XSOMAssessor xa = new XSOMAssessor()
+//		xa.assess xs
+//
+//		xa.getErrorHandler().getEvents().each{
+//
+//			def re = new ReviewError(lineNumber: it.getLocation().getLineNumber(),
+//					code: it.eventCode().getCode(),
+//					description: it.getDescription())
+//
+//			r.addToReviewErrors(re)
+//		}
+//		xa.getWarningHandler().getEvents().each{
+//
+//			def wng = new Warning(lineNumber:it.getLocation().getLineNumber(),
+//					code:it.eventCode().getCode(),
+//					description:it.getDescription())
+//
+//			r.addToReviewWarnings(wng)
+//		}
 		
 	}
 }
