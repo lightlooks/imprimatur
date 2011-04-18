@@ -36,8 +36,6 @@ class BootStrap {
 	  
 	  reviewService.refreshReviewers()
 	  
-	  
-	  
     }
     def destroy = {
     }
