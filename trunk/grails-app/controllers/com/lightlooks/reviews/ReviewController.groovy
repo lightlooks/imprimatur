@@ -11,6 +11,7 @@ class ReviewController {
 
 	/* dependency injected from spring-security-core plugin */
 	def springSecurityService
+	def reviewService
 
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -100,10 +101,10 @@ class ReviewController {
 			redirect(action:'create')
 		}
 
-		if(reviewInstance.artefactName.endsWith('.xsd')){
-			reviewFile(f, reviewInstance)
-			
-		}
+		System.out.println("about to review - review service is "+reviewService)
+		reviewService.review (f, [:], reviewInstance)
+		System.out.println("finished revieweing")	
+		
 		if (reviewInstance.save(flush: true)) {
 
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'review.label', default: 'Review'), reviewInstance.id])}"
